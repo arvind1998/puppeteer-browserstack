@@ -5,6 +5,7 @@ const main = async (cap) => {
     
     cap['browserstack.username'] = process.env.BROWSERSTACK_USERNAME || 'YOUR_USERNAME';
     cap['browserstack.accessKey'] = process.env.BROWSERSTACK_ACCESS_KEY || 'YOUR_ACCESS_KEY';
+    cap['build'] = process.env.BROWSERSTACK_BUILD_NAME;
 
     const browser = await puppeteer.connect({
       browserWSEndpoint:`wss://cdp.browserstack.com?caps=${encodeURIComponent(JSON.stringify(cap))}`,
@@ -35,48 +36,42 @@ const capabilities = [
   'browser_version': 'latest',
   'os': 'osx',
   'os_version': 'catalina',
-  'name': 'Chrome latest on Catalina',
-  'build': 'puppeteer-build-2'
+  'name': 'Chrome latest on Catalina'
 },
 {
   'browser': 'firefox',
   'browser_version': 'latest',
   'os': 'osx',
   'os_version': 'catalina',
-  'name': 'Firefox latest on Catalina',
-  'build': 'puppeteer-build-2'
+  'name': 'Firefox latest on Catalina'
 },
 {
   'browser': 'edge',
   'browser_version': 'latest',
   'os': 'osx',
   'os_version': 'catalina',
-  'name': 'Edge latest on Catalina',
-  'build': 'puppeteer-build-2'
+  'name': 'Edge latest on Catalina'
 },
 {
   'browser': 'chrome',
   'browser_version': 'latest-1',
   'os': 'Windows',
   'os_version': '10',
-  'name': 'Chrome latest-1 on Win10',
-  'build': 'puppeteer-build-2'
+  'name': 'Chrome latest-1 on Win10'
 },
 {
   'browser': 'firefox',
   'browser_version': 'latest-beta',
   'os': 'Windows',
   'os_version': '10',
-  'name': 'Firefox beta on Win10',
-  'build': 'puppeteer-build-2'
+  'name': 'Firefox beta on Win10'
 },
 {
   'browser': 'edge',
   'browser_version': 'latest',
   'os': 'Windows',
   'os_version': '10',
-  'name': 'Edge latest on Win10',
-  'build': 'puppeteer-build-2'
+  'name': 'Edge latest on Win10'
 }]
 
 //  The following code loops through the capabilities array defined above and runs your code against each environment that you have specified
